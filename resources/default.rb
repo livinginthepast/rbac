@@ -9,3 +9,8 @@ end
 def self.definitions
   @definitions ||= []
 end
+
+def intialize(*args)
+  super(*args)
+  @action = :nothing
+end
