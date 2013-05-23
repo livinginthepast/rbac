@@ -1,16 +1,6 @@
-actions :apply, :define, :add_management_permissions
 
-attribute :user, :kind_of => [String, NilClass], :default => nil
+default_action :create
 
-def self.permissions
-  @permissions ||= {}
-end
+actions :create
 
-def self.definitions
-  @definitions ||= []
-end
-
-def intialize(*args)
-  super(*args)
-  @action = :nothing
-end
+attribute :name, :kind_of => String, :name_attribute => true, :required => true
