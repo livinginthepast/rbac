@@ -12,7 +12,6 @@ action :create do
   manage = execute "add RBAC #{definition} management to /etc/security/auth_attr" do
     command "echo \"#{manage_auth}\" >> /etc/security/auth_attr"
     not_if "grep \"#{manage_auth}\" /etc/security/auth_attr"
-    notifies :updated_by_action, new_resource, :immediately
   end
 
   # This additional permission allows the user to call svccfg -s service setprop
@@ -22,7 +21,6 @@ action :create do
   value = execute "add RBAC #{definition} value to /etc/security/auth_attr" do
     command "echo \"#{value_auth}\" >> /etc/security/auth_attr"
     not_if "grep \"#{value_auth}\" /etc/security/auth_attr"
-    notifies :updated_by_action, new_resource, :immediately
   end
 
   new_resource.updated_by_last_action(manage.updated_by_last_action? || value.updated_by_last_action?)
