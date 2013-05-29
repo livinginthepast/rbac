@@ -79,4 +79,4 @@ This adds both manage and value auths to user `my_user`.
 ## TODO
 
 * separate manage auth from value auth
-
+* ability to delete all rbac attributes
