@@ -17,6 +17,6 @@ action :apply do
   execute "Apply rbac authorizations to #{username}" do
     command "usermod -A #{permissions} #{username}"
     action :nothing
-    not_if "grep #{username} /etc/user_attr | egrep 'auths=#{permissions}$'"
+    not_if "grep #{username} /etc/user_attr | grep 'auths=#{permissions}'"
   end.run_action(:run)
 end
