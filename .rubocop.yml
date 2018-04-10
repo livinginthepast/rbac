@@ -1,0 +1,4 @@
+# Offense count: 1
+Lint/HandleExceptions:
+  Exclude:
+    - 'providers/auth.rb'
