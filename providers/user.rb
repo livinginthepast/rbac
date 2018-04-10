@@ -3,7 +3,7 @@
 # manually run.
 
 def load_current_resource
-  @current_resource = Chef::Resource::Rbac::User.new(@new_resource.user)
+  @current_resource = new_resource.class.new(@new_resource.user)
 end
 
 action :apply do
